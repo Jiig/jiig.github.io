@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nexus</title>
+	<link rel="stylesheet" href="tailwind.css" />
+	<link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+	<div class="absolute -z-10 flex-1 overflow-hidden h-screen w-screen">
+		<img class="min-h-full min-w-full filter blur-md" src="./arty.jpg" />
+
+	</div>
+
+	<div class="flex h-screen">
+		<div class="align-middle m-auto bg-gallery-950 w-5/6 p-6 border-2 border-gallery-950 border-solid">
+			<p class="font-bold text-carnation-400">
+				user@internet: ~/startpage$ <span class="text-gallery-50 font-normal">nexus --options</span>
+			</p>
+
+			<div id="display-grid" class="grid grid-cols-4 my-3">
+				<!-- text-shamrock-500 font-bold -->
+			</div>
+
+			<p class="font-bold text-carnation-400 mt-4">
+				user@internet: ~/startpage$ <span id="user-command-line-input"
+					class="font-normal text-gallery-50"></span><span id="user-command-line-blinker"
+					class="font-normal text-gallery-50">_</span>
+			</p>
+		</div>
+	</div>
+
+
+	<div class="absolute bottom-0 left-0 flex bg-gallery-950 py-2 px-10 w-screen">
+		<div id="status-bar-date" class="mx-4 text-lg font-bold text-carnation-500">
+			DD-MM
+		</div>
+		<div id="status-bar-clock" class="mx-4 text-lg font-bold">
+			HH:MM:SS
+		</div>
+	</div>
+
+
+	<script src="linkConfig.js"></script>
+	<script src="main.js"></script>
+</body>
+
+</html>
