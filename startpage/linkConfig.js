@@ -44,6 +44,10 @@ const linkConfig = [
         showAs: "roll20",
         link: "https://roll20.net",
       },
+      {
+        showAs: "rpgbot",
+        link: "https://rpgbot.net/",
+      },
     ],
   },
 ];
