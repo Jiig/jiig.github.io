@@ -36,7 +36,7 @@ function renderOptions() {
     option.links.forEach((link) => {
       const linkParagraph = document.createElement("p");
       const linkAnchor = document.createElement("a");
-      linkAnchor.textContent = "\t" + link.showAs;
+      linkAnchor.textContent = "    " + link.showAs;
       linkAnchor.href = link.link;
       linkParagraph.appendChild(linkAnchor);
       categoryParent.appendChild(linkParagraph);
