@@ -36,7 +36,7 @@ function renderOptions() {
     option.links.forEach((link) => {
       const linkParagraph = document.createElement("p");
       const linkAnchor = document.createElement("a");
-      linkAnchor.textContent = link.showAs;
+      linkAnchor.textContent = "\t" + link.showAs;
       linkAnchor.href = link.link;
       linkParagraph.appendChild(linkAnchor);
       categoryParent.appendChild(linkParagraph);
@@ -115,4 +115,3 @@ function initialize() {
 
 let userCommandLineInput = "";
 initialize();
-
