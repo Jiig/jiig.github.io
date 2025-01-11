@@ -11,9 +11,11 @@ const linkConfig = [
   {
     category: "mtg/",
     links: [
-      showAs: "archidekt",
-      link: "https://archidekt.com/"
-    ]
+      {
+        showAs: "archidekt",
+        link: "https://archidekt.com/",
+      },
+    ],
   },
   {
     category: "media/",
