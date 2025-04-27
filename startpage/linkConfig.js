@@ -15,6 +15,14 @@ const linkConfig = [
         showAs: "archidekt",
         link: "https://archidekt.com/",
       },
+      {
+        showAs: "edhrec",
+        link: "https://edhrec.com/",
+      },
+      {
+        showAs: "scryfall",
+        link: "https://scryfall.com/",
+      },
     ],
   },
   {
