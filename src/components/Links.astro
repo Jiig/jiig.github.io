@@ -1,40 +1,17 @@
 ---
 import {parse} from 'yaml';
 import {Icon} from 'astro-icon/components'
-import { z } from 'astro/zod';
-
-export const linkSchema = z.object({
-  name: z.string(),
-  iconName: z.string(),
-  url: z.union([z.url(), z.literal('')]).optional(),
-});
-
-export const sectionSchema = z.object({
-  name: z.string(),
-  links: z.array(linkSchema),
-});
-
-export const linksSchema = z.object({
-  sections: z.array(sectionSchema),
-});
-
-export type Link = z.infer<typeof linkSchema>;
-export type Section = z.infer<typeof sectionSchema>;
-export type LinksData = z.infer<typeof linksSchema>;
+import { getEntry } from 'astro:content';
+import type {Section, Link} from '../content/links/types'
 
 
-import linksYaml from '../../links.yaml?raw';
-const result = linksSchema.safeParse(parse(linksYaml));
-if (!result.success) {
-  throw new Error(`links.yaml validation failed: ${result.error.message}`);
-}
+const links = await getEntry('links', 'main');
+const sections = links?.data.sections
 
-const linksData = parse(linksYaml)
-const { sections } = result.data;
 ---
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   {
-    sections.map((section) => (
+    sections.map((section : Section) => (
       <ul class="list bg-base-100 rounded-box shadow-md">
         <li class="p-4 pb-2 tracking-wide text-4xl text-secondary">{section.name}</li>
 

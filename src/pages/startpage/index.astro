@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Links from '../../components/Links.astro'
+import Links from '../../components/Links.astro';
+import Bar from '../../components/Bar.astro';
 ---
 
-<Layout>
+<Layout title="Startpage">
 	<div class="flex flex-wrap gap-8 items-start">
 		<div class="px-4 py-8">
 			<Links />
@@ -11,6 +12,10 @@ import Links from '../../components/Links.astro'
 		<div class="max-w-md px-4 py-8">
 			Wiki
 		</div>
+	</div>
+
+	<div class="py-4 mx-auto max-w-[60%]">
+		<Bar/>
 	</div>
 </Layout>
 

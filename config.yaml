@@ -1,7 +1,0 @@
-quickLinks:
-  - Url: "https://www.youtube.com"
-    name: "YouTube"
-    localIconPath: ""
-  - Url: "https://www.twitch.tv"
-    name: "Twitch"
-    localIconPath: ""
