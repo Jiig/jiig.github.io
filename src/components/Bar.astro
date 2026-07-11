@@ -6,7 +6,6 @@
 </div>
 
 <script>
-
     const sbox : HTMLInputElement | null = document.querySelector('#sbar')
     const isDev = import.meta.env.DEV;
 
@@ -14,13 +13,12 @@
         if (!sbox) return; // Shouldn't happen since the only entry point is via event listener
         const query = sbox.value.trim();
         sbox.value = "";
-        console.log(query)
 
         // Do the thing
         if (query.startsWith('?')) {
             search(query)
         } else {
-            openUrl(`https://${query}`)
+            openUrl(query)
         }
     }
 
@@ -30,6 +28,12 @@
     }
 
     function openUrl(uri: string) {
+
+        let parsed = new URL(uri);
+        if (!parsed.protocol) {
+            uri = `https://${uri}`
+        }
+
         if (isDev) {
             window.open(uri)
         } else {

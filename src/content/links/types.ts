@@ -1,5 +1,4 @@
 import { z } from 'astro/zod'
-import type Links from '../../components/Links.astro';
 
 export const LinkSchema = z.object({
   name: z.string(),

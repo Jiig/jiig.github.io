@@ -17,7 +17,7 @@ sections:
   - name: Code
     links:
       - url: "https://github.com"
-        name: "Github"
+        name: "GitHub"
         iconName: "mdi:github"
       - url: "https://github.com/copilot"
         name: "Copilot"

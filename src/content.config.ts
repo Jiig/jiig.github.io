@@ -1,12 +1,11 @@
 import {defineCollection} from 'astro:content';
-import { z } from 'astro/zod';
-import { glob, file } from 'astro/loaders'
+import { glob } from 'astro/loaders'
 
-import {SectionSchema} from './content/links/types'
+import {LinksSchema} from './content/links/types'
 
 const links = defineCollection({
   loader: glob({pattern: "**/*.{yaml,yml}", base:"./src/content/links"}),
-  schema: SectionSchema
+  schema: LinksSchema,
 });
 
 export const collections = {
