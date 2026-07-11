@@ -7,6 +7,8 @@ import type { WeatherState } from "../lib/weather/types";
 function Weather() {
   const [weather, setWeather] = useState<WeatherState | null>(null);
   const [loading, setLoading] = useState(true);
+  const isDev = import.meta.env.DEV;
+  const weatherUrl = "https://www.wunderground.com";
 
   const nextFourHours = weather
     ? weather.hourly.time
@@ -40,8 +42,28 @@ function Weather() {
     fetchWeather();
   }, []);
 
+  const handleCardClick = () => {
+    if (isDev) {
+      window.open(weatherUrl);
+    } else {
+      window.open(weatherUrl, "_self");
+    }
+  };
+
   return (
-    <div className="card w-[38rem] max-w-full bg-base-100 shadow-sm">
+    <div
+      className="card w-[38rem] max-w-full cursor-pointer bg-base-100 shadow-sm"
+      onClick={handleCardClick}
+      role="link"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          handleCardClick();
+        }
+      }}
+      aria-label="Open Wunderground"
+    >
       <div className="card-body">
         <div className="flex justify-between">
           <h2 className="text-3xl font-bold text-secondary">Weather</h2>
@@ -80,7 +102,7 @@ function Weather() {
                 <div className="text-xs font-semibold text-base-content/70">
                   {hourLabelFormatter.format(hour.time)}
                 </div>
-                <div className="mt-1 flex items-center gap-1">
+                <div className="mt-1 justify-between flex items-center">
                   <span className="text-lg font-semibold">
                     {Number(hour.temperature).toFixed(0)}° F
                   </span>
