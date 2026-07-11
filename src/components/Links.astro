@@ -1,22 +1,28 @@
 ---
-import {Icon} from 'astro-icon/components'
-import { getEntry } from 'astro:content';
-import type {Section, Link} from '../content/links/types'
+import { Icon } from "astro-icon/components";
+import { getEntry } from "astro:content";
+import type { Section, Link } from "../content/links/types";
 
-
-const links = await getEntry('links', 'main');
-const sections = links?.data.sections || []
-
+const links = await getEntry("links", "main");
+const sections = links?.data.sections || [];
 ---
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   {
-    sections.map((section : Section) => (
+    sections.map((section: Section) => (
       <ul class="list bg-base-100 rounded-box shadow-md">
-        <li class="p-4 pb-2 tracking-wide text-4xl text-secondary">{section.name}</li>
+        <li class="p-4 pb-2 tracking-wide text-4xl text-secondary">
+          {section.name}
+        </li>
 
         {section.links.map((link: Link) => (
-          <li class="list-row btn-list items-center bg-neutral" data-value={link.url}>
-            <div><Icon name={link.iconName} class="text-4xl" /></div>
+          <li
+            class="list-row btn-list items-center bg-neutral"
+            data-value={link.url}
+          >
+            <div>
+              <Icon name={link.iconName} class="text-4xl" />
+            </div>
             <div class="text-3xl">{link.name}</div>
           </li>
         ))}
@@ -27,23 +33,23 @@ const sections = links?.data.sections || []
 
 <style>
   .btn-list {
-    cursor: pointer
+    cursor: pointer;
   }
 </style>
 
 <script>
-  const buttons = document.querySelectorAll('.btn-list');
+  const buttons = document.querySelectorAll(".btn-list");
   const isDev = import.meta.env.DEV;
 
   buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      let url = button.getAttribute('data-value') || 'error';
-      let target = isDev ? '' : '_self';
+    button.addEventListener("click", () => {
+      let url = button.getAttribute("data-value") || "error";
+      let target = isDev ? "" : "_self";
       if (isDev) {
         window.open(url);
       } else {
-        window.open(url, '_self');
+        window.open(url, "_self");
       }
-    })
+    });
   });
 </script>

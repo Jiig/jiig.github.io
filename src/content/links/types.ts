@@ -1,9 +1,9 @@
-import { z } from 'astro/zod'
+import { z } from "astro/zod";
 
 export const LinkSchema = z.object({
   name: z.string(),
   iconName: z.string(),
-  url: z.url()
+  url: z.url(),
 });
 
 export const SectionSchema = z.object({
@@ -12,9 +12,9 @@ export const SectionSchema = z.object({
 });
 
 export const LinksSchema = z.object({
-    sections: z.array(SectionSchema)
+  sections: z.array(SectionSchema),
 });
 
-export type Section = z.infer<typeof SectionSchema>
-export type Links = z.infer<typeof LinksSchema>
-export type Link = z.infer<typeof LinkSchema>
+export type Section = z.infer<typeof SectionSchema>;
+export type Links = z.infer<typeof LinksSchema>;
+export type Link = z.infer<typeof LinkSchema>;

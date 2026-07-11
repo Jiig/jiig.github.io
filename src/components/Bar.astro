@@ -1,49 +1,56 @@
 ---
+
 ---
 
 <div data-search-container>
-    <input type="text" class="input border-primary w-full" id="sbar" placeholder="Search or Go"/>
+  <input
+    type="text"
+    class="input border-primary w-full focus:border-accent focus:outline-none"
+    id="sbar"
+    placeholder="Search or Go"
+  />
 </div>
 
 <script>
-    const sbox : HTMLInputElement | null = document.querySelector('#sbar')
-    const isDev = import.meta.env.DEV;
+  const sbox: HTMLInputElement | null = document.querySelector("#sbar");
+  const isDev = import.meta.env.DEV;
 
-    function doThing() {
-        if (!sbox) return; // Shouldn't happen since the only entry point is via event listener
-        const query = sbox.value.trim();
-        sbox.value = "";
+  if (sbox) sbox.focus();
 
-        // Do the thing
-        if (query.startsWith('?')) {
-            search(query)
-        } else {
-            openUrl(query)
-        }
+  function doThing() {
+    if (!sbox) return; // Shouldn't happen since the only entry point is via event listener
+    const query = sbox.value.trim();
+    sbox.value = "";
+
+    // Do the thing
+    if (query.startsWith("?")) {
+      search(query);
+    } else {
+      openUrl(query);
+    }
+  }
+
+  function search(query: string) {
+    const uri = `https://google.com/search?q=${encodeURI(query.slice(1))}`;
+    openUrl(uri);
+  }
+
+  function openUrl(uri: string) {
+    let parsed = new URL(uri);
+    if (!parsed.protocol) {
+      uri = `https://${uri}`;
     }
 
-    function search(query: string) {
-        const uri = `https://google.com/search?q=${encodeURI(query.slice(1))}`
-        openUrl(uri)
+    if (isDev) {
+      window.open(uri);
+    } else {
+      window.open(uri, "_self");
     }
+  }
 
-    function openUrl(uri: string) {
-
-        let parsed = new URL(uri);
-        if (!parsed.protocol) {
-            uri = `https://${uri}`
-        }
-
-        if (isDev) {
-            window.open(uri)
-        } else {
-            window.open(uri, '_self')
-        }
+  sbox?.addEventListener("keydown", (event) => {
+    if (event.key == "Enter") {
+      doThing();
     }
-
-    sbox?.addEventListener('keydown', (event) => {
-        if (event.key == 'Enter') {
-            doThing();
-        }
-    });
+  });
 </script>
