@@ -1,0 +1,17 @@
+sections:
+  - name: Content
+    links:
+    - url: "https://www.youtube.com"
+      name: "YouTube"
+      iconName: "mdi:youtube"
+    - url: "https://www.twitch.tv"
+      name: "Twitch"
+      iconName: "mdi:twitch"
+    - url: "https://oldschool.runescape.wiki/"
+      name: "OSRS Wiki"
+      iconName: "arcticons:old-school-runescape"
+  - name: Code
+    links:
+    - url: "https://github.com"
+      name: "Github"
+      iconName: "mdi:github"
