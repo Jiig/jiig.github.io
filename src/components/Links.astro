@@ -38,7 +38,7 @@ const { sections } = result.data;
       <ul class="list bg-base-100 rounded-box shadow-md">
         <li class="p-4 pb-2 tracking-wide text-4xl text-secondary">{section.name}</li>
 
-        {section.links.map((link) => (
+        {section.links.map((link: Link) => (
           <li class="list-row btn-list items-center bg-neutral" data-value={link.url}>
             <div><Icon name={link.iconName} class="text-4xl" /></div>
             <div class="text-3xl">{link.name}</div>
