@@ -1,0 +1,24 @@
+name: main
+sections:
+  - name: Content
+    links:
+      - url: "https://www.youtube.com"
+        name: "YouTube"
+        iconName: "mdi:youtube"
+      - url: "https://www.twitch.tv"
+        name: "Twitch"
+        iconName: "mdi:twitch"
+      - url: "https://oldschool.runescape.wiki/"
+        name: "OSRS Wiki"
+        iconName: "arcticons:old-school-runescape"
+      - url: "https://runescape.wiki/"
+        name: "RS3 Wiki"
+        iconName: "arcticons:runescape"
+  - name: Code
+    links:
+      - url: "https://github.com"
+        name: "GitHub"
+        iconName: "mdi:github"
+      - url: "https://github.com/copilot"
+        name: "Copilot"
+        iconName: "mdi:robot-confused"
