@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Links from "../../components/Links.astro";
 import Bar from "../../components/Bar.astro";
+import Weather from "../../components/Weather";
 ---
 
 <Layout title="Startpage">
@@ -9,7 +10,7 @@ import Bar from "../../components/Bar.astro";
     <div class="px-4 py-8">
       <Links />
     </div>
-    <div class="max-w-md px-4 py-8">Wiki</div>
+    <div class="max-w-md px-4 py-8"><Weather client:visible /></div>
   </div>
 
   <div class="py-4 mx-auto max-w-[60%]">
