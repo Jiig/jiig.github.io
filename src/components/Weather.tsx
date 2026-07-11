@@ -9,6 +9,7 @@ function Weather() {
   const [loading, setLoading] = useState(true);
   const isDev = import.meta.env.DEV;
   const weatherUrl = "https://www.wunderground.com";
+  const dailyMaxTemperature = weather?.daily.temperatureMax[0] ?? null;
 
   const nextFourHours = weather
     ? weather.hourly.time
@@ -82,9 +83,18 @@ function Weather() {
                   d={getWeatherIconPath(weather?.current.weatherCode ?? 3)}
                 />
               </svg>
-              <span className="text-xl">
-                {weather?.current.temperature?.toFixed(0) ?? "--"}° F
-              </span>
+              <div className="flex items-baseline gap-1 text-xl">
+                <span className="text-primary">
+                  {weather?.current.temperature?.toFixed(0) ?? "--"}
+                </span>
+                <span>/</span>
+                <span>
+                  {dailyMaxTemperature !== null
+                    ? dailyMaxTemperature.toFixed(0)
+                    : "--"}
+                </span>
+                <span>° F</span>
+              </div>
             </div>
           )}
         </div>
@@ -99,7 +109,7 @@ function Weather() {
                 key={hour.time.toISOString()}
                 className="rounded-box bg-base-200 p-3"
               >
-                <div className="text-xs font-semibold text-base-content/70">
+                <div className="text-xs font-semibold text-accent">
                   {hourLabelFormatter.format(hour.time)}
                 </div>
                 <div className="mt-1 justify-between flex items-center">
