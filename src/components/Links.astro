@@ -46,15 +46,20 @@ const sections = links?.data.sections || [];
   const buttons = document.querySelectorAll(".btn-list");
   const isDev = import.meta.env.DEV;
 
+  function openLink(url: string, target: string) {
+    window.open(url, target);
+  }
+
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       let url = button.getAttribute("data-value") || "error";
       let target = isDev ? "" : "_self";
-      if (isDev) {
-        window.open(url);
-      } else {
-        window.open(url, "_self");
-      }
+      openLink(url, target)
+    });
+
+    button.addEventListener("auxclick", () => {
+      let url = button.getAttribute("data-value") || "error";
+      openLink(url, "_self")
     });
   });
 </script>

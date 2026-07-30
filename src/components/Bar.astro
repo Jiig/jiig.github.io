@@ -7,7 +7,7 @@
     type="text"
     class="input border-primary w-full focus:border-accent focus:outline-none"
     id="sbar"
-    placeholder="Search or Go"
+    placeholder="Search"
   />
 </div>
 
@@ -22,25 +22,15 @@
     const query = sbox.value.trim();
     sbox.value = "";
 
-    // Do the thing
-    if (query.startsWith("?")) {
-      search(query);
-    } else {
-      openUrl(query);
-    }
+    search(query);
   }
 
   function search(query: string) {
-    const uri = `https://google.com/search?q=${encodeURI(query.slice(1))}`;
+    const uri = `https://google.com/search?q=${encodeURI(query)}`;
     openUrl(uri);
   }
 
   function openUrl(uri: string) {
-    let parsed = new URL(uri);
-    if (!parsed.protocol) {
-      uri = `https://${uri}`;
-    }
-
     if (isDev) {
       window.open(uri);
     } else {
