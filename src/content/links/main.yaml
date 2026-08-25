@@ -22,6 +22,9 @@ sections:
       - url: "https://github.com/copilot"
         name: "Copilot"
         iconName: "mdi:robot-confused"
+      - url: "https://about.gitlab.com/"
+        name: "gitlab"
+        iconName: "mdi:gitlab"
   - name: Comms
     links:
       - url: "https://fastmail.com"
