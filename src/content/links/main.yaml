@@ -14,6 +14,9 @@ sections:
       - url: "https://runescape.wiki/"
         name: "RS3 Wiki"
         iconName: "arcticons:runescape"
+      - url: "https://https://shminer.miraheze.org/wiki/Obelisk_Miner_Wiki"
+        name: "Obelisk Miner Wiki"
+        iconName: "arcticons:minecraft-pickaxe"
   - name: Code
     links:
       - url: "https://github.com"
